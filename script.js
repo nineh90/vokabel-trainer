@@ -22,9 +22,24 @@ function welcome(){
 }    
 
 function init(){
-    let inputQuery = document.getElementById('startContent');
-    inputQuery.classList.remove("d-none");
-    inputQuery.innerHTML = '';
-    inputQuery.innerHTML = 'Deine Mudda schwitzt beim kacken';
+    generateStartBox();
     //alert('DEINE MUDDA SCHWITZT BEIM KACKEN');
+}
+
+function generateStartBox(){
+    let taskQuery = document.getElementById('startContent');
+    taskQuery.classList.remove("d-none");
+    taskQuery.innerHTML = '';
+    taskQuery.innerHTML = generateStartBoxHTML();
+}
+
+function openVocabularyFolder(){
+    console.log('Deine Mudda')
+    let content = document.getElementById('startContent')
+    content.innerHTML = '';
+    content.innerHTML = generateVocabularyInputHTML();
+}
+
+function saveVokabulary(){
+    alert('Du musst erst die Felder füllen, bevor du etwas speichern kannst!')
 }
