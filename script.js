@@ -34,12 +34,44 @@ function generateStartBox(){
 }
 
 function openVocabularyFolder(){
-    console.log('Deine Mudda')
     let content = document.getElementById('startContent')
     content.innerHTML = '';
     content.innerHTML = generateVocabularyInputHTML();
 }
 
 function saveVokabulary(){
-    alert('Du musst erst die Felder füllen, bevor du etwas speichern kannst!')
+    let germanWord = document.getElementById('germanWord');
+    let englishWord = document.getElementById('englishWord');
+    if(germanWord.value&& englishWord.value){
+        vokabulary[germanWord.value] = englishWord.value;
+        germanWord.value = '';
+        englishWord.value = '';
+        localStorage.setItem('vokabulary', JSON.stringify(vokabulary))
+    } else {    
+        alert('Du musst erst die Felder füllen, bevor du etwas speichern kannst!')
+    }
+}
+
+function openQuestionFolder(){
+    let vokabularyOutput = document.getElementById('startContent');
+    vokabularyOutput.innerHTML = '';
+    vokabularyOutput.innerHTML = generateVocabularyOutputHTML();
+}
+
+function openPractice(){
+    let practice = document.getElementById('startContent');
+    practice.innerHTML = "";
+    practice.innerHTML = generatePracticeHTML();
+}
+
+function openVokabularyTest(){
+    let testOutput = document.getElementById('startContent');
+    testOutput.innerHTML = "";
+    testOutput.innerHTML =  generateTestDescription();
+}
+
+function showIndexCard(){
+    let indexCard = document.getElementById('startContent');
+
+    console.log(indexCard)
 }

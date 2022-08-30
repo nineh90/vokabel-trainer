@@ -1,14 +1,15 @@
 function generateStartBoxHTML(){
     return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center">
                 <div onclick="openVocabularyFolder()" class="a">Vokabeln Einfügen</div>    
-                <div class="a">Vokabeln Abfragen</div>    
-                <div class="a">Übung</div>    
-                <div class="a">Vokabel Test</div>    
+                <div onclick="openQuestionFolder()" class="a">Vokabeln Abfragen</div>    
+                <div onclick="openPractice()" class="a">Übung</div>    
+                <div onclick="openVokabularyTest()" class="a">Vokabel Test</div>    
             </div>`;
 }
 
 function generateVocabularyInputHTML(){
-    return  `<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center">
+    return  `<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png">
                 <h1>Vokabeln Einfügen</h1>
                 <p class="discription-vokabulary-container">
                     Hier kannst du deine Vokabeln<br>
@@ -16,8 +17,59 @@ function generateVocabularyInputHTML(){
                     und im nächsten Schritt kannst<br>
                     du die Vokabeln lernen.
                 </p>
-                <input id="german" placeholder="Deutsch">
-                <input id="english" placeholder="Englisch">
+                <input id="germanWord" placeholder="Deutsch">
+                <input id="englishWord" placeholder="Englisch">
                 <button onclick="saveVokabulary()" class="save-btn"><strong>Speichern</strong></button>
+            </div>`;
+}
+
+function generateVocabularyOutputHTML(){
+    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png"> 
+                <h1>Vokabeln Abfragen</h1>
+                <p class="discription-vokabulary-container">
+                    Hier kannst du deine Vokabeln,<br>
+                    die du bereits gespeichert hast üben.<br>
+                    Übersetzte dazu aus dem Englischen<br>
+                    in das Deutsche.
+                </p>
+                <h2><strong>Translate The Follow Word</strong></h2>
+                <span>????</span>
+                <input id="english" placeholder="Deutsch">
+                <button class="save-btn"><strong>Weiter</strong></button>
+            </div>`;
+}
+
+function generatePracticeHTML(){
+    return `<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png">
+                <h1>Übung Kartei Karten</h1>
+                <p class="discription-vokabulary-container">
+                    Hier kannst du deine Vokabeln,<br>
+                    die du bereits gespeichert hast üben.<br>
+                    Schau dir dazu das deutsche Wort durch<br>
+                    und sprich das englische Wort laut aus.<br>
+                    Durch klicken auf die Karte siehst du,<br>
+                    ob deine Antwort Richtig ist
+                </p>
+                <button onclick="showIndexCard()" class="save-btn"><strong>Weiter</strong></button>
+            </div>`;
+}
+
+function generateTestDescription(){
+    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png">
+                <h1>Vokabel Test</h1>
+                <p class="discription-vokabulary-container">
+                    Hier kannst du deine Vokabeln,<br>
+                    die du bereits gelernt hast Testen.<br>
+                    Schau dir dazu das deutsche Wort an<br>
+                    und schreibe das Englische Wort.<br>
+                    Durch klicken auf "Weiter",<br>
+                    kommst du zur nächsten Frage.<br>
+                    Der Test läuft auf Zeit, am Ende gibt es<br>
+                    eine Auflistung wie viele du richtig hast.
+                </p>
+                <button class="save-btn"><strong>Weiter</strong></button>
             </div>`;
 }
