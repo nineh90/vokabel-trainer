@@ -1,7 +1,6 @@
 function welcome(){
     var textWrapper = document.querySelector('.ml2');
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
     anime.timeline({loop: false})
     .add({
         targets: '.ml2 .letter',
@@ -19,11 +18,12 @@ function welcome(){
         delay: 1000
     });
     setTimeout(init, 5000);
+    gameStartSound.play();
+
 }    
 
 function init(){
     generateStartBox();
-    //alert('DEINE MUDDA SCHWITZT BEIM KACKEN');
 }
 
 function generateStartBox(){
@@ -31,6 +31,8 @@ function generateStartBox(){
     taskQuery.classList.remove("d-none");
     taskQuery.innerHTML = '';
     taskQuery.innerHTML = generateStartBoxHTML();
+    document.getElementById('background').style.backgroundImage = `url('./img/fortnite.jpg')`;
+
 }
 
 function openVocabularyFolder(){
@@ -42,7 +44,7 @@ function openVocabularyFolder(){
 function saveVokabulary(){
     let germanWord = document.getElementById('germanWord');
     let englishWord = document.getElementById('englishWord');
-    if(germanWord.value&& englishWord.value){
+    if(germanWord.value && englishWord.value){
         vokabulary[germanWord.value] = englishWord.value;
         germanWord.value = '';
         englishWord.value = '';
@@ -56,6 +58,7 @@ function openQuestionFolder(){
     let vokabularyOutput = document.getElementById('startContent');
     vokabularyOutput.innerHTML = '';
     vokabularyOutput.innerHTML = generateVocabularyOutputHTML();
+    showNextVokabulary();
 }
 
 function openPractice(){
@@ -70,8 +73,47 @@ function openVokabularyTest(){
     testOutput.innerHTML =  generateTestDescription();
 }
 
+function showNextVokabulary(){
+    let objectKeys= Object.keys(vokabulary);
+    randomKey = objectKeys[Math.floor(Math.random() * objectKeys.length)];
+    wordToTranslate.innerHTML ='';
+    wordToTranslate.innerHTML = `${vokabulary[randomKey]}`;
+    translateInGerman.value = "";
+    isAnswersCorrect.innerHTML = ""; 
+    document.getElementById('background').style.backgroundImage = `url('./img/fortnite.jpg')`;
+}
+
+function checkAnswer(){
+    if (translateInGerman.value.toLowerCase() == randomKey.toLowerCase()){
+         // TRUE
+        document.getElementById('background').style.backgroundImage = `url('./img/mexify.jpg')`;
+        corretAnswerSound.play();
+        isAnswersCorrect.innerHTML = `Richtige antwort ist ${randomKey}`;
+    } else {
+        // False
+        document.getElementById('background').style.backgroundImage = `url('./img/sadsmiliey.png')`;
+        falseAnswerSound.play();
+        isAnswersCorrect.innerHTML = `FALSCH! Richtige Antwort ist ${randomKey}`; 
+    }
+    setTimeout(showNextVokabulary, 5000);
+}
+
 function showIndexCard(){
     let indexCard = document.getElementById('startContent');
+    indexCard.innerHTML = '';
+    indexCard.innerHTML = `<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                                    <img onclick="generateStartBox()" class="cross" src="./img/cross.png">
+                                    <div id="vokabularyList"></div>
+                                    <button  class="save-btn"><strong>Weiter</strong></button>
+                                </div>`;  
+    for (let key in vokabulary) {
+        vokabularyList.innerHTML += `<div>
+                                        <div>${key}</div> 
+                                        <div>${vokabulary[key]}</div>
+                                    </div>`;
 
-    console.log(indexCard)
+        // germantext.innerHTML += `${key}`
+        // englishtext.innerHTML += `${vokabulary[key]}`
+    }
 }
+    

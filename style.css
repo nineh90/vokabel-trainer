@@ -10,6 +10,7 @@ body{
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .bg-1{
@@ -129,6 +130,10 @@ input{
     right: 35px;
     cursor: pointer;
     filter: invert(1);
+}
+
+.font-size24px{
+    font-size: 24px;
 }
 
 /* Moving Letters */

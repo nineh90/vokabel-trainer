@@ -33,10 +33,11 @@ function generateVocabularyOutputHTML(){
                     Übersetzte dazu aus dem Englischen<br>
                     in das Deutsche.
                 </p>
-                <h2><strong>Translate The Follow Word</strong></h2>
-                <span>????</span>
-                <input id="english" placeholder="Deutsch">
-                <button class="save-btn"><strong>Weiter</strong></button>
+                <h2><strong>translate the following word</strong></h2>
+                <h1 id="wordToTranslate">????</h1>
+                <span class="font-size24px" id="isAnswersCorrect"></span>
+                <input id="translateInGerman" placeholder="Deutsch">
+                <button onclick="checkAnswer()" class="save-btn"><strong>Weiter</strong></button>
             </div>`;
 }
 
@@ -47,7 +48,7 @@ function generatePracticeHTML(){
                 <p class="discription-vokabulary-container">
                     Hier kannst du deine Vokabeln,<br>
                     die du bereits gespeichert hast üben.<br>
-                    Schau dir dazu das deutsche Wort durch<br>
+                    Schau dir dazu das deutsche Wort an<br>
                     und sprich das englische Wort laut aus.<br>
                     Durch klicken auf die Karte siehst du,<br>
                     ob deine Antwort Richtig ist
