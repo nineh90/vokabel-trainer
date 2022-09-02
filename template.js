@@ -74,3 +74,10 @@ function generateTestDescription(){
                 <button class="save-btn"><strong>Weiter</strong></button>
             </div>`;
 }
+
+function generateVokabularyHTML(){
+    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png">
+                <div id="vokabularyList"></div>
+            </div>`;  
+}

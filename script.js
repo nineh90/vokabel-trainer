@@ -18,7 +18,7 @@ function welcome(){
         delay: 1000
     });
     setTimeout(init, 5000);
-    gameStartSound.play();
+    //gameStartSound.play();
 
 }    
 
@@ -101,11 +101,7 @@ function checkAnswer(){
 function showIndexCard(){
     let indexCard = document.getElementById('startContent');
     indexCard.innerHTML = '';
-    indexCard.innerHTML = `<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
-                                    <img onclick="generateStartBox()" class="cross" src="./img/cross.png">
-                                    <div id="vokabularyList"></div>
-                                    <button  class="save-btn"><strong>Weiter</strong></button>
-                                </div>`;  
+    indexCard.innerHTML = generateVokabularyHTML();
     for (let key in vokabulary) {
         vokabularyList.innerHTML += `<div>
                                         <div>${key}</div> 
