@@ -19,7 +19,6 @@ function welcome(){
     });
     setTimeout(init, 5000);
     //gameStartSound.play();
-
 }    
 
 function init(){
@@ -103,7 +102,7 @@ function showIndexCard(){
     indexCard.innerHTML = '';
     indexCard.innerHTML = generateVokabularyHTML();
     for (let key in vokabulary) {
-        vokabularyList.innerHTML += `<div>
+        vokabularyList.innerHTML += `<div class="vokabulary-container bg-1">
                                         <div>${key}</div> 
                                         <div>${vokabulary[key]}</div>
                                     </div>`;

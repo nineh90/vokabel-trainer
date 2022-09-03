@@ -136,6 +136,22 @@ input{
     font-size: 24px;
 }
 
+.vokabulary-container{
+    border: solid 2px lightgray;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 4px;
+    width: 150px;
+    font-size: 24px;
+    font-weight: bold
+}
+
+#vokabularyList{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 /* Moving Letters */
 
 .ml2 {
