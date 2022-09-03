@@ -99,12 +99,13 @@ function checkAnswer(){
 
 function showIndexCard(){
     let indexCard = document.getElementById('startContent');
+    indexCard.classList.remove('start-container');
     indexCard.innerHTML = '';
     indexCard.innerHTML = generateVokabularyHTML();
     for (let key in vokabulary) {
         vokabularyList.innerHTML += `<div class="vokabulary-container bg-1">
-                                        <div>${key}</div> 
-                                        <div>${vokabulary[key]}</div>
+                                        <div class="h-42-5">${key.toUpperCase()}</div> 
+                                        <div class="h-42-5">${vokabulary[key].toUpperCase()}</div>
                                     </div>`;
 
         // germantext.innerHTML += `${key}`

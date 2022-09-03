@@ -141,9 +141,17 @@ input{
     border-radius: 12px;
     padding: 24px;
     margin: 4px;
-    width: 150px;
+    width: 185px;
+    height: 85px;
     font-size: 24px;
-    font-weight: bold
+    font-weight: bold;
+    background-color: rgb(218 230 13 / 50%);
+    color: black;
+    text-align: center;
+}
+
+.h-42-5{
+    height: 42.5;
 }
 
 #vokabularyList{
