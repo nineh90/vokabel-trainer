@@ -13,6 +13,10 @@ body{
     background-position: center;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 .bg-1{
     background: rgba(0,0,0,25%);
 }
@@ -162,6 +166,12 @@ input{
     cursor: pointer;
     filter: invert(1);
 }
+
+.bus{
+    border-radius: 100%;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+}
+
 .font-size24px{
     font-size: 24px;
 }

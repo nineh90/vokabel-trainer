@@ -28,7 +28,7 @@ function generateVocabularyOutputHTML(){
                 <h1 id="wordToTranslate">????</h1>
                 <span class="font-size24px" id="isAnswersCorrect"></span>
                 <input id="translateInGerman" placeholder="Deutsch">
-                <button onclick="checkAnswer()" class="save-btn"><strong>Weiter</strong></button>
+                <button id="checkBtn" onclick="checkAnswer()" class="save-btn"><strong>Weiter</strong></button>
             </div>`;
 }
 
@@ -40,17 +40,6 @@ function generatePracticeHTML(){
             </div>`;
 }
 
-// function generateTestDescription(){
-//     return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
-//                 <img onclick="generateStartBox()" class="cross" src="./img/cross.png">
-//                 <h1>Vokabel Test</h1>
-//                 <p>
-//                     Übersetze aus dem deutschen in das Englische.
-//                 </p>
-//                 <button onclick="openVokabularyTest()" class="save-btn"><strong>Weiter</strong></button>
-//             </div>`;
-// }
-
 function generateVokabularyHTML(){
     return`<div class="">
                 <img onclick="generateStartBox()" class="cross-mexy" src="./img/cross.png">
@@ -58,19 +47,61 @@ function generateVokabularyHTML(){
             </div>`;  
 }
 
+function generateVokabularyListHTML(key){
+    return  `<div class="vokabulary-container bg-1">
+                <div class="h-42-5 border-btm">${key.toUpperCase()}</div> 
+                <div class="h-42-5">${vokabulary[key].toUpperCase()}</div>
+            </div>`;
+}
 
+function generateVokabularyTestHTML(){
+    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <h1>Vokabel Test</h1>
+                <h2><strong>ZEIT: <span id="minutes">10</span>:<span id="seconds">00<span> Minuten</strong></h2>
+                <h1 id="germanWordToTranslate">Deutsches Wort einfügen!!</h1>
+                <span class="font-size24px" id="isAnswersCorrect"></span>
+                <input id="translateInEnglish" placeholder="Englisch">
+                <button id="testBtn" onclick="checkTestAnswer()" class="save-btn"><strong>Weiter</strong></button>
+            </div>`;
+}
+ 
+function generateTestResult(){
+    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png"> 
+                <h1>Test ist zu Ende</h1>
+                <h2><strong>Du hast <span id="correctAnswers">${counter}</span> Richtig von <span>${onClick}</span> beantwortet </strong></h2>
+                <h1 id="testResult"></h1>
+            </div>`;       
+}
 
-// function generateVokabularyTestHTML(){
-// return`<div>
-//         <div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative padding margin-bt">
-//             <img onclick="generateStartBox()" class="cross" src="./img/cross.png"> 
-//             <h1>Vokabel Test</h1>
-//             <h2><strong>10 Minuten Zeit</strong></h2>
-//             <span id="testDescription" class="font-size24px">
-//                 Sobald du auf Start drückst Startet die Zeit<br>
-//                 Übersetze aus dem deutschen ins englische!                        
-//             </span>
-//             <button onclick="generateVokabularyTest()" class="save-btn"><strong>Start</strong></button>
-//         </div>
-//     </div>`
-// }
+function giftOneHTML(){
+    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png"> 
+                <h1>Belohnung Freigeschaltet</h1>
+                <img src="./img/welldone.png">
+                <h2><strong>50 CENT</strong></h2>
+                <p>Zur Anrechnung oder Auszahlung,<br>
+                wenn Schulden beglichen.</p>
+            </div>`;
+}
+
+function giftTwoHTML(){
+    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png"> 
+                <h1>Belohnung Freigeschaltet</h1>
+                <img src="./img/welldone.png">
+                <h2><strong>1 €</strong></h2>
+                <p>Zur Anrechnung oder Auszahlung,<br>
+                wenn Schulden beglichen.</p>
+            </div>`
+}
+
+function giftThreeHTML(){
+    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+                <img onclick="generateStartBox()" class="cross" src="./img/cross.png"> 
+                <h1>Belohnung Freigeschaltet</h1>
+                <img src="./img/welldone.png">
+                <h2><strong>5 €</strong></h2>
+                <p>Zur Freien Verwendung!</p>
+            </div>`
+}

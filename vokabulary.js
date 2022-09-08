@@ -1,4 +1,7 @@
 let randomKey;
+let onClick = 0;
+let counter = 0;
+
 let gameStartSound = new Audio('./mp3/start.mp3');
 let corretAnswerSound = new Audio('./mp3/applause.mp3');
 let falseAnswerSound = new Audio('./mp3/fail.mp3');
@@ -15,7 +18,7 @@ let vokabulary = JSON.parse(localStorage.getItem('vokabulary')) ||
     "morgen": "tomorrow",
     "regen": "rain",
     "regnerisch": "rainy",
-    "schön": "beutiful",   
+    "schön": "beautiful",   
     "see": "lake",
     "sie waren nicht": "they weren't",
     "sonne": "sun",
