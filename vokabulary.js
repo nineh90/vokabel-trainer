@@ -22,6 +22,7 @@ let vokabulary = JSON.parse(localStorage.getItem('vokabulary')) ||
     "sonnig": "sunny",
     "test": "test",
     "warm": "warm",
-    "wetter": "weahter",
+    "wetter": "weather",
     "ziehen": "pull",
+    
 }
