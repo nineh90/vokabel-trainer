@@ -3,7 +3,7 @@ function welcome(){
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
     setCSS();
     setTimeout(init, 5000);
-    gameStartSound.play();
+    //gameStartSound.play();
 }  
 
 function setCSS(){
@@ -144,7 +144,7 @@ function startTimer(){
     let startTime = new Date().getTime();
     let tenMinutes = 1000 * 60 * 10;
     let endTime = startTime + tenMinutes;
-    setInterval(function(){
+    let intervall = setInterval(function(){
         let timeLeft = endTime - new Date().getTime();
         if (timeLeft > 0){
             let minutes = timeLeft / (1000 * 60);
@@ -155,8 +155,10 @@ function startTimer(){
             let text = '0' + minutes + ':' + seconds;
             timer.innerHTML = text;
         } else {
+            clearInterval(intervall);
             timerAlertSound.play();
             timer.innerHTML = '00:00';
+            console.log(intervall);
         }    
     }, 1000)
 }
