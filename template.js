@@ -15,6 +15,7 @@ function generateVocabularyInputHTML(){
                     <input onsubmit="saveVokabulary()" id="germanWord" placeholder="Deutsch">
                     <input onsubmit="saveVokabulary()" id="englishWord" placeholder="Englisch">
                     <button onclick="saveVokabulary()" class="save-btn"><strong>Speichern</strong></button>
+                    <div><img id="checkBox" style="width: 45px;" class="d-none" src="./img/check.png"></div>
                 <div>    
             
             </div>`;
@@ -57,7 +58,7 @@ function generateVokabularyListHTML(key){
 function generateVokabularyTestHTML(){
     return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
                 <h1>Vokabel Test</h1>
-                <h2><strong>ZEIT: <span id="minutes">10</span>:<span id="seconds">00<span> Minuten</strong></h2>
+                <h2><strong>ZEIT: <span id="timer">10:00</span></strong></h2>
                 <h1 id="germanWordToTranslate">Deutsches Wort einfügen!!</h1>
                 <span class="font-size24px" id="isAnswersCorrect"></span>
                 <input id="translateInEnglish" placeholder="Englisch">

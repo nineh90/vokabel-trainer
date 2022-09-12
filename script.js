@@ -48,6 +48,7 @@ function saveVokabulary(){
     let germanWord = document.getElementById('germanWord');
     let englishWord = document.getElementById('englishWord');
     if(germanWord.value && englishWord.value){
+        document.getElementById('checkBox').classList.remove('d-none')
         vokabulary[germanWord.value.toLowerCase()] = englishWord.value.toLowerCase();
         germanWord.value = '';
         englishWord.value = '';
@@ -55,6 +56,12 @@ function saveVokabulary(){
     } else {    
         alert('Du musst erst die Felder füllen, bevor du etwas speichern kannst!')
     }
+    setTimeout(closeCheckBox, 1000);
+}
+
+function closeCheckBox(){
+    document.getElementById('checkBox').classList.add('d-none')
+
 }
 
 function openQuestionFolder(){
@@ -130,7 +137,32 @@ function openVokabularyTest(){
     vokabularyTestOutput.innerHTML =    generateVokabularyTestHTML();
     nextGermanWord();
     setTimeout(testEnd, 600000);
+    startTimer();
 }
+
+function startTimer(){
+    let startTime = new Date().getTime();
+    let tenMinutes = 1000 * 60 * 10;
+    let endTime = startTime + tenMinutes;
+    setInterval(function(){
+        let timeLeft = endTime - new Date().getTime();
+        if (timeLeft > 0){
+            let minutes = timeLeft / (1000 * 60);
+            minutes = Math.floor(minutes);
+            let seconds = (timeLeft / 1000) % 60;
+            seconds = Math.round(seconds);
+            seconds = ('0' + seconds).slice(-2); 
+            let text = '0' + minutes + ':' + seconds;
+            timer.innerHTML = text;
+        } else {
+            timerAlertSound.play();
+            timer.innerHTML = '00:00';
+        }    
+    }, 1000)
+}
+
+
+
 
 function testEnd(){
     document.getElementById('background').style.backgroundImage = `url('./img/mexify.jpg')`;
@@ -206,6 +238,7 @@ function nextGermanWord(){
     germanWordToTranslate.innerHTML = `${randomWord}`;
     translateInEnglish.value = "";
     document.getElementById('background').style.backgroundImage = `url('./img/fortnite.jpg')`;
+    console.log(objectKeys.length);
 }
 
 function checkTestAnswer(){
