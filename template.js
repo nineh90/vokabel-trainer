@@ -30,6 +30,7 @@ function generateVocabularyOutputHTML(){
                 <span class="font-size24px" id="isAnswersCorrect"></span>
                 <input autocomplete="off" id="translateInGerman" placeholder="Deutsch">
                 <button id="checkBtn" onclick="checkAnswer()" class="save-btn"><strong>Weiter</strong></button>
+                <span id="loaderGermanWord" class="loader d-none"></span>
             </div>`;
 }
 
@@ -63,6 +64,8 @@ function generateVokabularyTestHTML(){
                 <span class="font-size24px" id="isAnswersCorrect"></span>
                 <input autocomplete="off" id="translateInEnglish" placeholder="Englisch">
                 <button id="testBtn" onclick="checkTestAnswer()" class="save-btn"><strong>Weiter</strong></button>
+                <span id="loaderTest" class="loader d-none"></span>
+
             </div>`;
 }
  
