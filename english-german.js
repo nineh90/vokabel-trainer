@@ -20,12 +20,13 @@ function checkAnswer(){
                 // False
                 setFalseAttributes();
             }
-    }else{
-        alert('Schreibe erst etwas bevor es weiter geht');
-    }
+     }
 }
 
 function setFalseAttributes(){
+    // debugger
+    document.getElementById('bgAnswer').style.backgroundColor = "rgba(255 0 0 / 50%)";
+    inputGerman.classList.add('d-none');
     loaderGermanWord.classList.remove('d-none');
     document.getElementById('background').style.backgroundImage = `url('./img/sadsmiliey.png')`;
     falseAnswerSound.play();
@@ -35,6 +36,8 @@ function setFalseAttributes(){
 }
 
 function setTrueAttributes(){
+    document.getElementById('bgAnswer').style.backgroundColor = "rgba(14 155 0 / 35%)";
+    inputGerman.classList.add('d-none');
     document.getElementById('background').style.backgroundImage = `url('./img/mexify.jpg')`;
     loaderGermanWord.classList.remove('d-none');
     corretAnswerSound.play();
@@ -44,6 +47,8 @@ function setTrueAttributes(){
 }
 
 function showNextVokabulary(){
+    document.getElementById('bgAnswer').style.backgroundColor = "rgba(0 0 0 / 35%)"
+    inputGerman.classList.remove('d-none')
     loaderGermanWord.classList.add('d-none');
     document.getElementById('checkBtn').classList.remove('d-none');
     let objectKeys= Object.keys(vokabulary);

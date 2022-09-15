@@ -18,7 +18,7 @@ body{
 }
 
 .bg-1{
-    background: rgba(0,0,0,25%);
+    background: rgba(0,0,0,45%);
 }
 
 .w-100{
@@ -236,6 +236,9 @@ input{
     overflow-y: scroll;
 }
 
+#loaderGermanWord{
+    margin-top: 24px;
+}
 
 /* Moving Letters */
 

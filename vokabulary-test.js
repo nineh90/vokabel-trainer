@@ -1,15 +1,13 @@
-setInterval(addEnterEventListenerEnglish, 1)
-
 function openVokabularyTest(){
     onClick = 0;
     counter = 0;
     let vokabularyTestOutput = document.getElementById('startContent');
     vokabularyTestOutput.innerHTML = '';
-    vokabularyTestOutput.innerHTML =    generateVokabularyTestHTML();
+    vokabularyTestOutput.innerHTML = generateVokabularyTestHTML();
     nextGermanWord();
     setTimeout(testEnd, 600000);// 10 minutes
     startTimer();
-    gameStartSound.play();
+    //gameStartSound.play();
 }
 
 function startTimer(){
@@ -96,6 +94,7 @@ function openGiftThree(){
 }
 
 function nextGermanWord(){
+    inputEnglish.classList.remove('d-none');
     loaderTest.classList.add('d-none');
     let testBtn = document.getElementById('testBtn');
     if (testBtn) {
@@ -109,22 +108,6 @@ function nextGermanWord(){
     document.getElementById('background').style.backgroundImage = `url('./img/fortnite.jpg')`;
 }
 
-function addEnterEventListenerEnglish(translateInEnglish){
-    if (translateInEnglish){
-            var input = document.getElementById("translateInEnglish").value;
-            input.addEventListener('keypress', function(event) {
-            if (event.key === "Enter") {
-            event.preventDefault();
-            checkTestAnswer();
-            document.getElementById("testBtn").click();
-            console.log('event')
-            }
-        }); 
-    }       
-   
-
-   
-}
 
 function checkTestAnswer(){
     if(translateInEnglish.value){
@@ -133,13 +116,12 @@ function checkTestAnswer(){
         } else {
             answerIsFalse();
         }
-    } else {
-        alert('Ups. Du hast nichts Eingegeben!');
-    }       
+     } 
     onclickCounter();    
 }
 
 function answerIsTrue(){
+    inputEnglish.classList.add('d-none');
     loaderTest.classList.remove('d-none');
     document.getElementById('background').style.backgroundImage = `url('./img/mexify.jpg')`;
     corretAnswerSound.play();            
@@ -149,6 +131,7 @@ function answerIsTrue(){
 }
 
 function answerIsFalse(){
+    inputEnglish.classList.add('d-none');
     loaderTest.classList.remove('d-none');
     document.getElementById('background').style.backgroundImage = `url('./img/sadsmiliey.png')`;
     document.getElementById('testBtn').classList.add('d-none');

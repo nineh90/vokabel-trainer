@@ -11,25 +11,31 @@ function generateVocabularyInputHTML(){
     return  `<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
                 <img onclick="generateStartBox()" class="cross" src="./img/cross.png">
                 <h1>Vokabeln Einfügen</h1>
-                <div id="inputArea" class="d-flex align-center justify-center column">
-                    <input onsubmit="saveVokabulary()" id="germanWord" placeholder="Deutsch" autocomplete="off">
-                    <input onsubmit="saveVokabulary()" id="englishWord" placeholder="Englisch" autocomplete="off">
-                    <button onclick="saveVokabulary()" class="save-btn"><strong>Speichern</strong></button>
+                <div id="inputArea">
+                <form onsubmit="saveVokabulary();return false;" class="d-flex align-center justify-center column">
+                        <input required id="germanWord" placeholder="Deutsch" autocomplete="off">
+                        <input required id="englishWord" placeholder="Englisch" autocomplete="off">
+                        <button onclick="saveVokabulary()" class="save-btn"><strong>Speichern</strong></button>
                     <div><img id="checkBox" style="width: 45px;" class="d-none" src="./img/check.png"></div>
+                </form>    
                 <div>    
             
             </div>`;
 }
 
 function generateVocabularyOutputHTML(){
-    return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
+    return`<div id="bgAnswer" class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
                 <img onclick="generateStartBox()" class="cross" src="./img/cross.png"> 
                 <h1>Vokabeln Abfragen</h1>
                 <h2><strong>translate the following word</strong></h2>
                 <h1 id="wordToTranslate">????</h1>
                 <span class="font-size24px" id="isAnswersCorrect"></span>
-                <input autocomplete="off" id="translateInGerman" placeholder="Deutsch">
-                <button id="checkBtn" onclick="checkAnswer()" class="save-btn"><strong>Weiter</strong></button>
+                <div id="inputGerman">
+                    <form class="d-flex align-center justify-center column" onsubmit="checkAnswer(); return false;">
+                        <input required autocomplete="off" id="translateInGerman" placeholder="Deutsch">
+                        <button id="checkBtn" onclick="checkAnswer()" class="save-btn"><strong>Weiter</strong></button>
+                    </form>
+                </div>        
                 <span id="loaderGermanWord" class="loader d-none"></span>
             </div>`;
 }
@@ -62,8 +68,12 @@ function generateVokabularyTestHTML(){
                 <h2><strong><span id="timer">10 : 00</span></strong></h2>
                 <h1 id="germanWordToTranslate">Deutsches Wort einfügen!!</h1>
                 <span class="font-size24px" id="isAnswersCorrect"></span>
-                <input autocomplete="off" id="translateInEnglish" placeholder="Englisch">
-                <button id="testBtn" onclick="checkTestAnswer()" class="save-btn"><strong>Weiter</strong></button>
+                <div id="inputEnglish">
+                    <form class=" d-flex align-center justify-center column" onsubmit="checkTestAnswer(); return false">
+                        <input required autocomplete="off" id="translateInEnglish" placeholder="Englisch">
+                        <button id="testBtn" onclick="checkTestAnswer()" class="save-btn"><strong>Weiter</strong></button>
+                    </form> 
+                </div>       
                 <span id="loaderTest" class="loader d-none"></span>
 
             </div>`;

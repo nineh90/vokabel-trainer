@@ -8,10 +8,8 @@ function saveVokabulary(){
     let englishWord = document.getElementById('englishWord');
     if(germanWord.value && englishWord.value){
         saveVokabularyAndSetInputNull();
-    } else {    
-        alert('Du musst erst die Felder füllen, bevor du etwas speichern kannst!')
     }
-    setTimeout(closeCheckBox, 1000);
+    setTimeout(closeCheckBox, 3000);
 }
 
 function saveVokabularyAndSetInputNull(){
