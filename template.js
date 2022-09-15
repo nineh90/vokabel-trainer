@@ -59,7 +59,7 @@ function generateVokabularyListHTML(key){
 function generateVokabularyTestHTML(){
     return`<div class="bg-1 w-100 h-75 d-flex align-center justify-center column txt-center relative">
                 <h1>Vokabel Test</h1>
-                <h2><strong>ZEIT: <span id="timer">10:00</span></strong></h2>
+                <h2><strong><span id="timer">10 : 00</span></strong></h2>
                 <h1 id="germanWordToTranslate">Deutsches Wort einfügen!!</h1>
                 <span class="font-size24px" id="isAnswersCorrect"></span>
                 <input autocomplete="off" id="translateInEnglish" placeholder="Englisch">
@@ -84,8 +84,6 @@ function giftOneHTML(){
                 <h1>Belohnung Freigeschaltet</h1>
                 <img src="./img/welldone.png">
                 <h2><strong>50 CENT</strong></h2>
-                <p>Zur Anrechnung oder Auszahlung,<br>
-                wenn Schulden beglichen.</p>
             </div>`;
 }
 
@@ -95,8 +93,6 @@ function giftTwoHTML(){
                 <h1>Belohnung Freigeschaltet</h1>
                 <img src="./img/welldone.png">
                 <h2><strong>1 €</strong></h2>
-                <p>Zur Anrechnung oder Auszahlung,<br>
-                wenn Schulden beglichen.</p>
             </div>`
 }
 

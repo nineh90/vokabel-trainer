@@ -1,3 +1,5 @@
+setInterval(addEnterEventListenerEnglish, 1)
+
 function openVokabularyTest(){
     onClick = 0;
     counter = 0;
@@ -5,13 +7,14 @@ function openVokabularyTest(){
     vokabularyTestOutput.innerHTML = '';
     vokabularyTestOutput.innerHTML =    generateVokabularyTestHTML();
     nextGermanWord();
-    setTimeout(testEnd, 600000);
+    setTimeout(testEnd, 600000);// 10 minutes
     startTimer();
+    gameStartSound.play();
 }
 
 function startTimer(){
     let startTime = new Date().getTime();
-    let tenMinutes = 1000 * 60 * 10;
+    let tenMinutes = 600000;
     let endTime = startTime + tenMinutes;
     let intervall = setInterval(function(){
         let timeLeft = endTime - new Date().getTime();
@@ -36,11 +39,9 @@ function timerattributes(timeLeft){
 function killTimer(intervall){
     clearInterval(intervall);
     timerAlertSound.play();
-    timer.innerHTML = '00:00';
 }
  
 function checkResultCounter(){
-    console.log('RESULT', counter) 
     ifCounterSmaler15();
     ifCounterGreater14();
     ifCounterGreater24();
@@ -106,7 +107,23 @@ function nextGermanWord(){
     germanWordToTranslate.innerHTML = `${randomWord}`;
     translateInEnglish.value = "";
     document.getElementById('background').style.backgroundImage = `url('./img/fortnite.jpg')`;
-    console.log(objectKeys.length);
+}
+
+function addEnterEventListenerEnglish(translateInEnglish){
+    if (translateInEnglish){
+            var input = document.getElementById("translateInEnglish").value;
+            input.addEventListener('keypress', function(event) {
+            if (event.key === "Enter") {
+            event.preventDefault();
+            checkTestAnswer();
+            document.getElementById("testBtn").click();
+            console.log('event')
+            }
+        }); 
+    }       
+   
+
+   
 }
 
 function checkTestAnswer(){
@@ -117,9 +134,9 @@ function checkTestAnswer(){
             answerIsFalse();
         }
     } else {
-        alert('Ups. Du hast nichts Eingegeben!')
-    }    
-    onclickCounter();
+        alert('Ups. Du hast nichts Eingegeben!');
+    }       
+    onclickCounter();    
 }
 
 function answerIsTrue(){

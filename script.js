@@ -3,7 +3,6 @@ function welcome(){
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
     setCSS();
     setTimeout(init, 5000);
-    //gameStartSound.play();
 }  
 
 function setCSS(){
@@ -36,7 +35,6 @@ function generateStartBox(){
     taskQuery.innerHTML = '';
     taskQuery.innerHTML = generateStartBoxHTML();
     document.getElementById('background').style.backgroundImage = `url('./img/fortnite.jpg')`;
-
 }
 
 
